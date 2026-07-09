@@ -99,13 +99,6 @@ export const EXAMPLE_PROJECTS: ExampleProject[] = [
     description:
       "Cozinha gourmet com churrasqueira integrada, adega climatizada e bancada estendida.",
   },
-  {
-    title: "Dormitório Vila Nova Conceição",
-    neighborhood: "Vila Nova Conceição",
-    category: "dormitorio",
-    description:
-      "Marcenaria de cabeceira com iluminação indireta, criados suspensos e painel ripado.",
-  },
 ];
 
 export type ProcessStep = {

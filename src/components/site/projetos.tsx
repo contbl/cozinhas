@@ -17,7 +17,6 @@ const FILTERS: Array<{ value: "todos" | ProjectCategory; label: string }> = [
   { value: "cozinha", label: CATEGORY_LABELS.cozinha + "s" },
   { value: "banheiro", label: CATEGORY_LABELS.banheiro + "s" },
   { value: "closet", label: CATEGORY_LABELS.closet + "s" },
-  { value: "dormitorio", label: CATEGORY_LABELS.dormitorio + "s" },
 ];
 
 function projectsFor(filter: "todos" | ProjectCategory) {
