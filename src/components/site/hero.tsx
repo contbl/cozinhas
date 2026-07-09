@@ -1,6 +1,8 @@
+import Image from "next/image";
+
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
-import { ProjectVisual } from "@/components/site/project-visual";
-import { CATEGORY_ICONS, STATS } from "@/lib/site-data";
+import { STATS } from "@/lib/site-data";
 
 export function Hero() {
   return (
@@ -55,17 +57,32 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <ProjectVisual
-            icon={CATEGORY_ICONS.cozinha}
+          <AspectRatio
             ratio={4 / 5}
-            className="shadow-xl ring-1 ring-foreground/10"
-          />
-          <div className="absolute -bottom-8 -left-6 hidden w-44 sm:block">
-            <ProjectVisual
-              icon={CATEGORY_ICONS.banheiro}
-              ratio={1}
-              className="border-4 border-background shadow-lg ring-1 ring-foreground/10"
+            className="overflow-hidden rounded-sm shadow-xl ring-1 ring-foreground/10"
+          >
+            <Image
+              src="/images/projects/cozinha%203.png"
+              alt="Cozinha planejada em destaque"
+              fill
+              priority
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
             />
+          </AspectRatio>
+          <div className="absolute -bottom-8 -left-6 hidden w-44 sm:block">
+            <AspectRatio
+              ratio={1}
+              className="overflow-hidden rounded-sm border-4 border-background shadow-lg ring-1 ring-foreground/10"
+            >
+              <Image
+                src="/images/projects/banheiro%201.png"
+                alt="Banheiro planejado em destaque"
+                fill
+                sizes="176px"
+                className="object-cover"
+              />
+            </AspectRatio>
           </div>
         </div>
       </div>

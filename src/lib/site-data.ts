@@ -34,9 +34,9 @@ export const NAV_LINKS = [
 ];
 
 export const STATS = [
-  { value: "15+", label: "anos de experiência" },
-  { value: "480+", label: "projetos entregues" },
-  { value: "98%", label: "clientes satisfeitos" },
+  { value: "10+", label: "anos de experiência" },
+  { value: "200+", label: "projetos entregues" },
+  { value: "100%", label: "clientes satisfeitos" },
 ];
 
 export type ExampleProject = {
