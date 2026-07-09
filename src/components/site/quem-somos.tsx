@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { Check } from "lucide-react";
 
-import { ProjectVisual } from "@/components/site/project-visual";
-import { CATEGORY_ICONS } from "@/lib/site-data";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const DIFERENCIAIS = [
   "Marcenaria própria, sem intermediários",
@@ -14,11 +14,18 @@ export function QuemSomos() {
   return (
     <section id="quem-somos" className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
       <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-        <ProjectVisual
-          icon={CATEGORY_ICONS.closet}
+        <AspectRatio
           ratio={4 / 3}
-          className="lg:order-last"
-        />
+          className="overflow-hidden rounded-sm lg:order-last"
+        >
+          <Image
+            src="/images/projects/cozinha%204.png"
+            alt="Cozinha planejada - Quem Somos"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </AspectRatio>
 
         <div>
           <span className="text-xs font-medium tracking-widest text-primary uppercase">
