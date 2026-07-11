@@ -28,6 +28,7 @@ export const CATEGORY_ICONS: Record<ProjectCategory, LucideIcon> = {
 
 export const NAV_LINKS = [
   { label: "Quem Somos", href: "#quem-somos" },
+  { label: "Produtos", href: "/produtos" },
   { label: "Projetos", href: "#projetos" },
   { label: "Como Trabalhamos", href: "#como-trabalhamos" },
   { label: "Contato", href: "#contato" },
