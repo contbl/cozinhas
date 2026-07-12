@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -57,46 +58,62 @@ export function Projetos() {
           {FILTERS.map((filter) => (
             <TabsContent key={filter.value} value={filter.value} className="mt-10">
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {projectsFor(filter.value).map((project) => (
-                  <Card key={project.title} className="overflow-hidden pt-0">
-                    {project.image ? (
-                      <AspectRatio
-                        ratio={4 / 3}
-                        className="group relative overflow-hidden rounded-none"
-                      >
-                        <Image
-                          src={project.image.src}
-                          alt={project.image.alt}
-                          fill
-                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                {projectsFor(filter.value).map((project) => {
+                  const card = (
+                    <Card
+                      className={
+                        project.productSlug
+                          ? "overflow-hidden pt-0 transition-shadow hover:shadow-md"
+                          : "overflow-hidden pt-0"
+                      }
+                    >
+                      {project.image ? (
+                        <AspectRatio
+                          ratio={4 / 3}
+                          className="group relative overflow-hidden rounded-none"
+                        >
+                          <Image
+                            src={project.image.src}
+                            alt={project.image.alt}
+                            fill
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        </AspectRatio>
+                      ) : (
+                        <ProjectVisual
+                          icon={CATEGORY_ICONS[project.category]}
+                          ratio={4 / 3}
+                          className="rounded-none"
                         />
-                      </AspectRatio>
-                    ) : (
-                      <ProjectVisual
-                        icon={CATEGORY_ICONS[project.category]}
-                        ratio={4 / 3}
-                        className="rounded-none"
-                      />
-                    )}
-                    <CardHeader>
-                      <div className="flex items-start justify-between gap-2">
-                        <CardTitle>{project.title}</CardTitle>
-                        <Badge variant="secondary" className="shrink-0">
-                          {project.categoryLabel ?? CATEGORY_LABELS[project.category]}
-                        </Badge>
-                      </div>
-                      <CardDescription>
-                        {project.neighborhood} · São Paulo
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">
-                        {project.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
+                      )}
+                      <CardHeader>
+                        <div className="flex items-start justify-between gap-2">
+                          <CardTitle>{project.title}</CardTitle>
+                          <Badge variant="secondary" className="shrink-0">
+                            {project.categoryLabel ?? CATEGORY_LABELS[project.category]}
+                          </Badge>
+                        </div>
+                        <CardDescription>
+                          {project.neighborhood} · São Paulo
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground">
+                          {project.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  );
+
+                  return project.productSlug ? (
+                    <Link key={project.title} href={`/produtos/${project.productSlug}`}>
+                      {card}
+                    </Link>
+                  ) : (
+                    <div key={project.title}>{card}</div>
+                  );
+                })}
               </div>
             </TabsContent>
           ))}

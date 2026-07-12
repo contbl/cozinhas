@@ -47,6 +47,7 @@ export type ExampleProject = {
   categoryLabel?: string;
   description: string;
   image?: { src: string; alt: string };
+  productSlug?: string;
 };
 
 export const EXAMPLE_PROJECTS: ExampleProject[] = [
@@ -61,6 +62,7 @@ export const EXAMPLE_PROJECTS: ExampleProject[] = [
       src: "/images/projects/cozinha%201.jpeg",
       alt: "Render 3D de projeto conceitual de cozinha planejada",
     },
+    productSlug: "milano",
   },
   {
     title: "Banheiro Alto de Pinheiros",
@@ -78,6 +80,7 @@ export const EXAMPLE_PROJECTS: ExampleProject[] = [
       src: "/images/projects/cozinha%202.jpeg",
       alt: "Foto de cozinha planejada executada",
     },
+    productSlug: "industrial-loft",
   },
   {
     title: "Closet Brooklin",
@@ -99,6 +102,7 @@ export const EXAMPLE_PROJECTS: ExampleProject[] = [
     category: "cozinha",
     description:
       "Cozinha gourmet com churrasqueira integrada, adega climatizada e bancada estendida.",
+    productSlug: "ilha-gourmet",
   },
 ];
 
