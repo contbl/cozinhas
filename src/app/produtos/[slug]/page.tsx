@@ -6,8 +6,7 @@ import { ChevronRight, ShieldCheck } from "lucide-react";
 import { Navbar } from "@/components/site/navbar";
 import { Footer } from "@/components/site/footer";
 import { Badge } from "@/components/ui/badge";
-import { ProductGallery } from "@/components/site/produto/product-gallery";
-import { ProductConfigurator } from "@/components/site/produto/product-configurator";
+import { ProductDetail } from "@/components/site/produto/product-detail";
 import { PRODUCTS, getProductBySlug } from "@/lib/products-data";
 
 export function generateStaticParams() {
@@ -65,8 +64,7 @@ export default async function ProdutoPage({
           </nav>
 
           <div className="mt-6 grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12">
-            <ProductGallery images={product.images} productName={product.name} />
-            <ProductConfigurator product={product} />
+            <ProductDetail product={product} />
           </div>
 
           <div className="mt-16 grid gap-10 lg:grid-cols-3">

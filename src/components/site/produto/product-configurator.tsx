@@ -15,8 +15,15 @@ import {
 
 const WHATSAPP_NUMBER = "5511999999999";
 
-export function ProductConfigurator({ product }: { product: Product }) {
-  const [comboId, setComboId] = useState(product.combos[0].id);
+export function ProductConfigurator({
+  product,
+  comboId,
+  onComboChange,
+}: {
+  product: Product;
+  comboId: string;
+  onComboChange: (comboId: string) => void;
+}) {
   const [colorId, setColorId] = useState(product.colors[0].id);
   const [installationId, setInstallationId] = useState<
     (typeof INSTALLATION_OPTIONS)[number]["id"]
@@ -79,7 +86,7 @@ export function ProductConfigurator({ product }: { product: Product }) {
                   name={`${product.slug}-combo`}
                   value={option.id}
                   checked={selected}
-                  onChange={() => setComboId(option.id)}
+                  onChange={() => onComboChange(option.id)}
                   className="sr-only"
                 />
                 <div className="flex items-start justify-between gap-3">

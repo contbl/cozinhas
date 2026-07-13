@@ -8,6 +8,7 @@ export type ProductCombo = {
   tagline: string;
   price: number;
   features: string[];
+  image?: ProductImage;
 };
 
 export type ProductColor = {
@@ -85,6 +86,10 @@ export const PRODUCTS: Product[] = [
           "Portas lisas com puxador padrão",
           "Ferragens com corrediças telescópicas",
         ],
+        image: {
+          src: "/images/projects/cozinha%201%20-%20basic.png",
+          alt: "Cozinha Milano — combo Essencial",
+        },
       },
       {
         id: "completo",
